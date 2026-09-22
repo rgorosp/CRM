@@ -49,7 +49,7 @@ Tabela de referência rápida. Preenchemos conforme decidimos — não antes.
 | Linguagem / stack | Next.js (React + servidor no mesmo projeto) | 2026-09-07 | Passo 2 |
 | Banco de dados | MySQL 8.0.28 local, database `projeto` | 2026-09-07 | Passo 4 |
 | Interface (frontend) | Next.js (mesmas telas do projeto) | 2026-09-07 | Passo 2 |
-| Versionamento (Git) | *a definir* | — | — |
+| Versionamento (Git) | Git, branch `main`, no GitHub em `rgorosp/CRM` | 2026-09-21 | Passo 14 |
 | Acesso (login) | Usuário único no `.env`, senha em hash `scrypt`, sessão por cookie assinado | 2026-09-13 | Passo 10 |
 | Onde vai rodar | Local na porta 3100 (3000 está ocupada) | 2026-09-07 | Passo 3 |
 
@@ -968,6 +968,48 @@ deve responder `{"erro":"Faça login para continuar."}`. E então, logado, em
 
 ---
 
+### Passo 14 — Projeto no GitHub
+**Data:** 2026-09-21
+
+**O quê**
+Iniciado o Git na pasta do projeto e enviado tudo para o GitHub, em
+`https://github.com/rgorosp/CRM`, na branch `main`.
+
+**Por quê**
+Pedido do Emerson. O projeto passa a ter cópia fora da máquina e histórico de cada
+mudança (o Git registra quem mudou o quê e quando, e permite voltar atrás).
+
+**Como foi feito**
+- Rodados os comandos que o GitHub sugere para repositório novo: `README.md` com
+  `# CRM`, `git init`, commit `first commit` só com o README, branch renomeada para
+  `main`, `origin` apontando para o GitHub e `git push`.
+- Num segundo commit entrou o resto do projeto (34 arquivos no total).
+
+**Conferência de segurança antes de enviar**
+- O `.gitignore` do Passo 4 deixou de fora `.env`, `node_modules` e `.next` —
+  confirmado com `git check-ignore`.
+- Nenhum valor secreto do `.env` (senha do MySQL, usuário e hash do login, segredo da
+  sessão) aparece em outro arquivo do projeto. Só o host (`127.0.0.1`), o nome do
+  database e o usuário do MySQL aparecem no `skill.md`, e nenhum deles é segredo.
+
+**Arquivos**
+- `README.md` — criado.
+- `.git/` — pasta criada pelo `git init` (não aparece no GitHub).
+- `skill.md` — este passo, a linha "Versionamento" em "Decisões técnicas" e o item
+  do Git em "Próximos passos".
+
+**Como testar**
+1. Abrir `https://github.com/rgorosp/CRM` → aparecem as pastas `app`, `banco`, `lib`,
+   `scripts` e os arquivos `.md`, **sem** `.env` e **sem** `node_modules`.
+2. No PowerShell, dentro da pasta `CRM`:
+   ```bash
+   git status
+   ```
+   Deve responder `Your branch is up to date with 'origin/main'` e
+   `nothing to commit, working tree clean`.
+
+---
+
 ## Próximos passos
 
 Ideias e pendências. Saem daqui e viram passo numerado **só depois de executadas**.
@@ -976,7 +1018,7 @@ Ideias e pendências. Saem daqui e viram passo numerado **só depois de executad
 - [x] ~~Escolher a stack~~ — Next.js, definido no Passo 2.
 - [ ] Levar a busca para o banco (SQL `LIKE`) quando a lista passar de alguns
       milhares de contatos — hoje ela é feita no navegador (Passo 7).
-- [ ] Iniciar o repositório Git (o `.gitignore` já foi criado no Passo 4).
+- [x] ~~Iniciar o repositório Git~~ — feito no Passo 14, com o projeto no GitHub.
 - [ ] Resolver a questão do OneDrive x `node_modules`.
 - [x] ~~Construir a **edição** de um contato já existente~~ — feita no Passo 9.
 - [ ] Decidir se o CRM fica no database `projeto` (com as tabelas antigas) ou em um database próprio.
