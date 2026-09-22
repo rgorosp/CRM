@@ -1,0 +1,707 @@
+/* ============================================================
+   Identidade visual do CRM — ver design.md
+   Toda cor e medida do projeto sai daqui. Nenhuma tela deve
+   escrever um código de cor direto: sempre usar a variável.
+   ============================================================ */
+
+:root {
+  /* Base */
+  --fundo: #FAFAF7;
+  --superficie: #FFFFFF;
+  --borda: #E6E4DE;
+  --texto: #17181C;
+  --texto-apoio: #6B6E76;
+
+  /* Destaque — a única cor de marca */
+  --destaque: #1D4ED8;
+  --destaque-hover: #1E40AF;
+
+  /* Etapas do funil — usar SOMENTE em etiquetas de etapa */
+  --etapa-novo: #64748B;
+  --etapa-em-contato: #D97706;
+  --etapa-proposta: #7C3AED;
+  --etapa-cliente: #15803D;
+
+  /* Forma */
+  --raio: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--fundo);
+  color: var(--texto);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Página inicial ---------- */
+
+.pagina {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.cartao {
+  max-width: 640px;
+  background-color: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 48px;
+}
+
+.marca {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--raio);
+  background-color: var(--destaque);
+  margin-bottom: 32px;
+}
+
+.titulo {
+  margin: 0 0 16px;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.apoio {
+  margin: 0;
+  max-width: 46ch;
+  color: var(--texto-apoio);
+}
+
+.nota {
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--borda);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-apoio);
+}
+
+@media (max-width: 640px) {
+  .pagina {
+    padding: 32px 20px;
+  }
+  .cartao {
+    padding: 32px 24px;
+  }
+  .titulo {
+    font-size: 32px;
+  }
+}
+
+/* ---------- Tela de contatos ---------- */
+
+.cabecalho {
+  margin-bottom: 32px;
+}
+
+.cabecalho .titulo {
+  margin-bottom: 8px;
+}
+
+/* Duas colunas: formulário fixo à esquerda, lista ocupando o resto. */
+.colunas {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.colunas .cartao {
+  max-width: none;
+  padding: 32px;
+}
+
+.titulo-secao {
+  margin: 0 0 24px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Formulário ---------- */
+
+.campo {
+  margin-bottom: 16px;
+}
+
+.rotulo {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-apoio);
+}
+
+.obrigatorio {
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+.entrada {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--texto);
+  background-color: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  outline: none;
+}
+
+.entrada:focus {
+  border-color: var(--destaque);
+}
+
+.area {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.aviso {
+  margin: 0 0 16px;
+  padding: 12px;
+  font-size: 15px;
+  color: var(--texto);
+  background-color: var(--fundo);
+  border: 1px solid var(--borda);
+  border-left: 3px solid var(--destaque);
+  border-radius: var(--raio);
+}
+
+.botao {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--superficie);
+  background-color: var(--destaque);
+  border: 1px solid var(--destaque);
+  border-radius: var(--raio);
+  cursor: pointer;
+}
+
+.botao:hover {
+  background-color: var(--destaque-hover);
+  border-color: var(--destaque-hover);
+}
+
+.botao:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* ---------- Lista ---------- */
+
+.topo-lista {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Campo de busca, logo acima da lista. */
+.busca {
+  margin-bottom: 24px;
+}
+
+.topo-lista .titulo-secao {
+  margin: 0;
+}
+
+.contagem {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-apoio);
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.contato {
+  max-width: none;
+  padding: 24px;
+}
+
+.vazio {
+  max-width: none;
+  padding: 24px;
+}
+
+.linha-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.nome {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.dados {
+  margin: 0;
+  font-size: 15px;
+  color: var(--texto-apoio);
+}
+
+.anotacoes {
+  margin: 16px 0 0;
+  font-size: 15px;
+}
+
+.linha-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--borda);
+}
+
+.meta {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-apoio);
+}
+
+.botao-linha {
+  padding: 6px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-apoio);
+  background-color: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  cursor: pointer;
+}
+
+.botao-linha:hover {
+  color: var(--texto);
+  border-color: var(--texto-apoio);
+}
+
+/* ---------- Etiquetas de etapa ----------
+   As quatro cores do funil aparecem SOMENTE aqui (ver design.md). */
+
+.etiqueta {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid currentColor;
+  border-radius: var(--raio);
+  white-space: nowrap;
+}
+
+.etiqueta-novo {
+  color: var(--etapa-novo);
+}
+
+.etiqueta-em-contato {
+  color: var(--etapa-em-contato);
+}
+
+.etiqueta-proposta {
+  color: var(--etapa-proposta);
+}
+
+.etiqueta-cliente {
+  color: var(--etapa-cliente);
+}
+
+@media (max-width: 900px) {
+  .colunas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Recado curto embaixo de um campo do formulário. */
+.nota-campo {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--texto-apoio);
+}
+
+/* ---------- Alteração de contato ---------- */
+
+/* Os botões Editar e Excluir, lado a lado no rodapé do cartão. */
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+/* Botão de apoio (Cancelar): mesma forma do principal, sem o peso da cor. */
+.botao-secundario {
+  margin-top: 8px;
+  color: var(--texto-apoio);
+  background-color: var(--superficie);
+  border-color: var(--borda);
+}
+
+.botao-secundario:hover {
+  color: var(--texto);
+  background-color: var(--superficie);
+  border-color: var(--texto-apoio);
+}
+
+/* O contato que está sendo alterado ganha a borda de destaque. */
+.contato-em-edicao {
+  border-color: var(--destaque);
+}
+
+.aviso-edicao {
+  margin-bottom: 24px;
+}
+
+/* ---------- Entrada e saída ---------- */
+
+/* Título da tela com o botão Sair na mesma linha. */
+.linha-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Tela de login: cartão estreito, no meio da tela. */
+.pagina-login {
+  display: flex;
+  justify-content: center;
+  padding-top: 96px;
+}
+
+.cartao-login {
+  width: 100%;
+  max-width: 380px;
+  padding: 40px;
+}
+
+.titulo-login {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.cartao-login .apoio {
+  margin-bottom: 32px;
+}
+
+/* ---------- Página inicial: barra do topo ---------- */
+
+.barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 64px;
+}
+
+.barra-marca {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.barra-marca .marca {
+  margin-bottom: 0;
+}
+
+.barra-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.link-nav,
+.link-seta {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--destaque);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.link-nav:hover,
+.link-seta:hover {
+  color: var(--destaque-hover);
+  text-decoration: underline;
+}
+
+/* ---------- Página inicial: painel ---------- */
+
+.painel-topo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.painel-topo .titulo {
+  margin-bottom: 8px;
+}
+
+/* A frase cabe numa linha só; com o limite padrão, "está." caía sozinha. */
+.painel-topo .apoio {
+  max-width: none;
+}
+
+/* "Ao vivo · atualizado às..." — prova de que os números estão frescos. */
+.situacao {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-apoio);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ponto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--destaque);
+}
+
+.situacao-sem-conexao .ponto {
+  background-color: transparent;
+  border: 1px solid var(--texto-apoio);
+}
+
+/* O quadro: uma superfície só, dividida por bordas finas. */
+.quadro {
+  background-color: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+
+.quadro-total {
+  padding: 48px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.rotulo-painel {
+  margin: 0 0 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-apoio);
+}
+
+/*
+  Os números. Aqui NÃO se usa algarismo de largura fixa (tabular-nums):
+  nesse modo o "1" ocupa a largura de um "8" e, no tamanho gigante, o
+  número parece desalinhado do rótulo acima dele.
+*/
+.numero-total,
+.numero-etapa {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.numero-total {
+  font-size: 128px;
+}
+
+.numero-etapa {
+  margin: 32px 0 8px;
+  font-size: 64px;
+}
+
+.valor {
+  display: inline-block;
+}
+
+/* O número que acabou de mudar entra de baixo para cima, curto e discreto. */
+.valor-mudou {
+  animation: valor-entra 450ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes valor-entra {
+  from {
+    opacity: 0;
+    transform: translateY(0.25em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* A diferença (+1, −1) ao lado do número: aparece e some sozinha. */
+.diferenca {
+  padding: 4px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--destaque);
+  border: 1px solid var(--destaque);
+  border-radius: var(--raio);
+  animation: diferenca-some 4000ms ease forwards;
+}
+
+@keyframes diferenca-some {
+  0% {
+    opacity: 0;
+  }
+  8%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.quadro-etapas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.celula-etapa {
+  padding: 32px;
+  border-left: 1px solid var(--borda);
+}
+
+.celula-etapa:first-child {
+  border-left: none;
+}
+
+.celula-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* 01, 02, 03, 04: a posição da etapa no funil. */
+.ordem {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-apoio);
+  font-variant-numeric: tabular-nums;
+}
+
+.percentual {
+  margin: 0;
+  font-size: 15px;
+  color: var(--texto-apoio);
+  font-variant-numeric: tabular-nums;
+}
+
+.quadro-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 32px;
+  background-color: var(--fundo);
+  border-top: 1px solid var(--borda);
+}
+
+.nota-painel {
+  margin: 0;
+  font-size: 15px;
+  color: var(--texto-apoio);
+}
+
+@media (max-width: 900px) {
+  .painel-topo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Quatro etapas viram duas linhas de duas. */
+  .quadro-etapas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .celula-etapa:nth-child(odd) {
+    border-left: none;
+  }
+
+  .celula-etapa:nth-child(n + 3) {
+    border-top: 1px solid var(--borda);
+  }
+}
+
+@media (max-width: 640px) {
+  .barra {
+    margin-bottom: 48px;
+  }
+
+  .quadro-total {
+    padding: 32px 24px;
+  }
+
+  .numero-total {
+    font-size: 88px;
+  }
+
+  .celula-etapa {
+    padding: 24px 16px;
+  }
+
+  .numero-etapa {
+    margin-top: 24px;
+    font-size: 48px;
+  }
+
+  .quadro-rodape {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+  }
+}
+
+/* Quem pediu ao sistema menos movimento na tela não vê animação nenhuma. */
+@media (prefers-reduced-motion: reduce) {
+  .valor-mudou,
+  .diferenca {
+    animation: none;
+  }
+}

@@ -1,0 +1,22 @@
+# Dependências baixadas pelo npm — reinstaláveis, não versionar
+/node_modules
+
+# Arquivos gerados pelo Next.js ao rodar e ao publicar
+/.next/
+/out/
+/build
+
+# SEGREDOS — nunca subir para o GitHub
+.env
+.env.local
+.env.development.local
+.env.production.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Arquivos criados pelo sistema operacional
+Thumbs.db
+desktop.ini
+.DS_Store
